@@ -13,3 +13,12 @@ Pour cela Nous utiliserons docker-compose pour faciliter l’orchestration des c
 ## Création d’une image Docker pour notre application
 le repertoire
 ![](https://github.com/NoreddineDamane/Dockerize-a-Flask-web-application-MySql-and-phpMyAdmin/blob/main/impecr/2.png)
+* app.py — contient l’application Flask qui se connecte à la base de données et expose un point de terminaison d’API REST
+* database.sql — un script SQL pour initialiser la base de données
+
+### Dockerfile
+Nous voulons créer une image Docker pour notre application, nous devons donc créer un Dockerfile dans le répertoire app.
+Etape de la création du dockerfile :
+1.	Image Python 3 comme base 
+2.	Exposer le port 5000 (pour Flask)
+3.	Créer un répertoire de travail dans lequel requirements.txt et app.py seront copiés, nous avons besoin que nos dépendances (Flask et mysql-connector) soient installées et livrées avec l'image, donc nous devons créer le fichier requirements.txt mentionné ci-dessus :
