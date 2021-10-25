@@ -36,17 +36,17 @@ Nous utilisons trois services,
              
 Nous utilisons trois services, l’un est un conteneur qui expose l’API REST (app), et l’autre contient la base de données (db).
 1.	Service app :
-build : spécifie le répertoire qui contient le Dockerfile contenant les instructions de création de ce service
-links : relie ce service à un autre conteneur. Cela nous permettra également d’utiliser le nom du service au lieu d’avoir à trouver l’adresse IP du conteneur de base de données.
-ports : mappage des ports <Host>:<Container>.
+* build : spécifie le répertoire qui contient le Dockerfile contenant les instructions de création de ce service
+* links : relie ce service à un autre conteneur. Cela nous permettra également d’utiliser le nom du service au lieu d’avoir à trouver l’adresse IP du conteneur de base de données.
+* ports : mappage des ports <Host>:<Container>.
 2.	Service db :
-image: Comme l’instruction FROM du Dockerfile. Au lieu d’écrire un nouveau Dockerfile, nous utilisons une image existante.
-environnement : ajoutez des variables d’environnement.
-ports: Comme j’ai déjà une instance mysql en cours d’exécution sur mon hôte à l’aide de ce port, je la mappe à une autre. Le mappage se fait uniquement d’un hôte à l’autre, de sorte que notre conteneur App Service utilisera toujours le port 3306 pour se connecter à la base de données.
-volumes: puisque nous voulons que le conteneur soit initialisé avec notre schéma, pour cela nous connectons le répertoire contenant notre script .sql au point d'entrée de ce conteneur.
+* image: Comme l’instruction FROM du Dockerfile. Au lieu d’écrire un nouveau Dockerfile, nous utilisons une image existante.
+* environnement : ajoutez des variables d’environnement.
+* ports: Comme j’ai déjà une instance mysql en cours d’exécution sur mon hôte à l’aide de ce port, je la mappe à une autre. Le mappage se fait uniquement d’un hôte à l’autre, de sorte que notre conteneur App Service utilisera toujours le port 3306 pour se connecter à la base de données.
+* volumes: puisque nous voulons que le conteneur soit initialisé avec notre schéma, pour cela nous connectons le répertoire contenant notre script .sql au point d'entrée de ce conteneur.
 3.	Service phpmyadmin
-depends_on : exprime une dépendance aux services. l'image docker est utilisée pour le container PHPMyAdmin. 
-environnement : ajoutez des variables d’environnement (mappé  ports et la variable d'environnement est spécifiée db pour connecter le conteneur).
+* depends_on : exprime une dépendance aux services. l'image docker est utilisée pour le container PHPMyAdmin. 
+* environnement : ajoutez des variables d’environnement (mappé  ports et la variable d'environnement est spécifiée db pour connecter le conteneur).
  
  
 ## Exécution du docker-compose
