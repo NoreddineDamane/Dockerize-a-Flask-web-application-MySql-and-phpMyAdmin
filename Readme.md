@@ -31,7 +31,9 @@ Nous utilisons trois services,
 *	Un conteneur qui expose l’API REST (app), 
 *	Un conteneur qui contient la base de données (db)
 *	Un conteneur phpMyAdmin pour gérer les serveurs de bases de données MySQL.
-             ![](https://github.com/NoreddineDamane/Dockerize-a-Flask-web-application-MySql-and-phpMyAdmin/blob/main/impecr/5.png)
+                   ![](https://github.com/NoreddineDamane/Dockerize-a-Flask-web-application-MySql-and-phpMyAdmin/blob/main/impecr/5.png)
+             
+             
 Nous utilisons trois services, l’un est un conteneur qui expose l’API REST (app), et l’autre contient la base de données (db).
 1.	Service app :
 build : spécifie le répertoire qui contient le Dockerfile contenant les instructions de création de ce service
