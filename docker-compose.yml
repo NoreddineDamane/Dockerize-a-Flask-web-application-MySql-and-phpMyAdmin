@@ -1,0 +1,30 @@
+version: "3"
+services:
+  app:
+    build: ./api
+
+    links:
+      - db
+    ports:
+      - "5000:5000"
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "32000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      #MYSQL_USER: me
+      #MYSQL_PASSWORD: yourSAFEpassword
+    volumes:
+      #- ./db:/docker-entrypoint-initdb.d/:ro
+       - ./db/mybase.sql:/docker-entrypoint-initdb.d/mybase.sql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    environment:
+      - PMA_HOST=db
+    ports:
+      - 8080:80
