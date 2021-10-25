@@ -34,11 +34,11 @@ Nous utilisons trois services,
 
 ![](https://github.com/NoreddineDamane/Dockerize-a-Flask-web-application-MySql-and-phpMyAdmin/blob/main/impecr/5.png)
 Nous utilisons trois services, l’un est un conteneur qui expose l’API REST (app), et l’autre contient la base de données (db).
-*a.	Service app :
+1.	Service app :
 build : spécifie le répertoire qui contient le Dockerfile contenant les instructions de création de ce service
 links : relie ce service à un autre conteneur. Cela nous permettra également d’utiliser le nom du service au lieu d’avoir à trouver l’adresse IP du conteneur de base de données.
 ports : mappage des ports <Host>:<Container>.
-b.	Service db :
+2.	Service db :
 image: Comme l’instruction FROM du Dockerfile. Au lieu d’écrire un nouveau Dockerfile, nous utilisons une image existante.
 environnement : ajoutez des variables d’environnement.
 ports: Comme j’ai déjà une instance mysql en cours d’exécution sur mon hôte à l’aide de ce port, je la mappe à une autre. Le mappage se fait uniquement d’un hôte à l’autre, de sorte que notre conteneur App Service utilisera toujours le port 3306 pour se connecter à la base de données.
