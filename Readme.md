@@ -43,10 +43,19 @@ image: Comme l’instruction FROM du Dockerfile. Au lieu d’écrire un nouveau 
 environnement : ajoutez des variables d’environnement.
 ports: Comme j’ai déjà une instance mysql en cours d’exécution sur mon hôte à l’aide de ce port, je la mappe à une autre. Le mappage se fait uniquement d’un hôte à l’autre, de sorte que notre conteneur App Service utilisera toujours le port 3306 pour se connecter à la base de données.
 volumes: puisque nous voulons que le conteneur soit initialisé avec notre schéma, pour cela nous connectons le répertoire contenant notre script .sql au point d'entrée de ce conteneur.
-c.	Service phpmyadmin
+3.	Service phpmyadmin
 depends_on : exprime une dépendance aux services. l'image docker est utilisée pour le container PHPMyAdmin. 
 environnement : ajoutez des variables d’environnement (mappé  ports et la variable d'environnement est spécifiée db pour connecter le conteneur).
  
  
-# Exécution de l’application
+## Exécution du docker-compose
+Afin d’exécuter notre application dockerisée, nous exécuterons la commande suivante à partir du terminal: docker-compose up
+![](https://github.com/NoreddineDamane/Dockerize-a-Flask-web-application-MySql-and-phpMyAdmin/blob/main/impecr/6.png)
+### Exécution de l’application web
+Nous pouvons vérifier que l’application web fonctionne en  tapant URL suivant dans un navigateur : 127.0.0.1:5000 et en recevant la réponse suivante:
+![](https://github.com/NoreddineDamane/Dockerize-a-Flask-web-application-MySql-and-phpMyAdmin/blob/main/impecr/7.png)
+### Démarrage du serveur MySQL et des services phpMyAdmin
+Pour accéder à phpMyAdmin en tapant URL suivant dans un navigateur : http://localhost:8080, « n suite doit être chargé dans votre navigateur Web.
+                    ![](https://github.com/NoreddineDamane/Dockerize-a-Flask-web-application-MySql-and-phpMyAdmin/blob/main/impecr/8.png)
  
+
